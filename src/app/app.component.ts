@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myapp';
+  inputTask = new FormControl();
+  taskList: any = [];
+
+  addTask() {
+    const newtask = this.inputTask.value;
+    this.taskList.push(newtask);
+
+    this.inputTask.setValue('');
+  }
+ 
 }
